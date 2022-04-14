@@ -1,17 +1,12 @@
 <template>
   <div id="app">
     <HeaderComponent/>
-
-    <div class="content">
-      <router-view/>
-    </div>
-
-
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HeaderComponent from './components/HeaderComponent';
+import HeaderComponent from './components/layouts/HeaderComponent';
 
 
 export default {
@@ -30,11 +25,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
-}
-
-.content{
-  width: 1440px;
-  margin: 0 auto;
-  display: flex;
 }
 </style>

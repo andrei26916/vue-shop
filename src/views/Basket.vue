@@ -1,14 +1,18 @@
 <template>
     <div>
+      <div class="content">
         <h1>Корзина</h1>
+      </div>
+      <div class="content">
         <BasketComponent/>
+      </div>
     </div>
 </template>
 
 <script>
-    import BasketComponent from '../components/BsketComponent';
+    import BasketComponent from '../components/BasketComponent';
     export default {
-        name: "Bsket",
+        name: "Basket",
         components: {
             BasketComponent,
         }

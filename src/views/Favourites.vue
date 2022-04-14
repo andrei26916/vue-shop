@@ -1,7 +1,11 @@
 <template>
     <div>
+      <div class="content">
         <h1>Избранное</h1>
+      </div>
+      <div class="content">
         <FavouritesComponent/>
+      </div>
     </div>
 </template>
 

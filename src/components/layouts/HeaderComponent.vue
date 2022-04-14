@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="header">
-            <div class="content">
+            <div class="top_line">
                 <router-link :to="{name: 'home'}">
                     <div class="logo">
-                        <img width="50" alt="Vue logo" src="../assets/logo.png">
+                        <img width="50" alt="Vue logo" src="../../assets/logo.png">
                         <h1>HelloMarket</h1>
                     </div>
                 </router-link>
@@ -15,7 +15,7 @@
                             <i class="el-icon-s-unfold"></i>
                             Категории
                         </el-button>
-                        <el-dropdown-menu slot="dropdown" style="width: 100%">
+                        <el-dropdown-menu slot="dropdown" style="width: 99%">
                             <div class="category">
                                 <CategoriesComponent/>
                             </div>
@@ -33,6 +33,7 @@
                     </router-link>
                     <router-link :to="{name: 'favourites'}">
                         <div class="icon">
+                            <span v-if="countFavourites">{{countFavourites}}</span>
                             <i class="el-icon-collection-tag"></i>
                             <p>Избранное</p>
                         </div>
@@ -47,10 +48,14 @@
 
                     <el-dropdown trigger="click">
                         <div class="profile">
-                            <img src="../assets/no-photo.png" alt="">
+                          <el-avatar :size="50">
+                            <img src="https://e7.pngegg.com/pngimages/109/949/png-clipart-computer-software-management-business-service-technical-support-sugarplum-miscellaneous-infographic.png"/>
+                          </el-avatar>
                         </div>
                         <el-dropdown-menu slot="dropdown">
+                          <router-link style="text-decoration: none;" :to="{name: 'userSettings'}">
                             <el-dropdown-item class="clearfix"> <i class="el-icon-s-operation"></i> настройки</el-dropdown-item>
+                          </router-link>
                             <el-dropdown-item class="clearfix"> <i class="el-icon-close"></i> выход</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
@@ -64,7 +69,7 @@
 </template>
 
 <script>
-    import CategoriesComponent from './CategoriesComponent';
+    import CategoriesComponent from '../CategoriesComponent';
     import {mapGetters} from 'vuex';
     export default {
         data() {
@@ -74,7 +79,7 @@
             }
         },
         name: "HeaderComponent",
-        computed: mapGetters(['countBasket']),
+        computed: mapGetters(['countBasket', 'countFavourites']),
         components: {
             CategoriesComponent,
         }
@@ -82,95 +87,7 @@
 </script>
 
 <style scoped>
-
-    .header {
-        display: flex;
-        height: 100px;
-        border-bottom: 1px solid #e7e7e7;
-        box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
-    }
-
-    .header .content {
-        width: 1440px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-    }
-
-
-    .logo {
-        align-items: center;
-        display: flex;
-        margin-right: 2em;
-    }
-
-    .search {
-        width: 700px;
-        display: flex;
-        margin-right: 2em;
-    }
-
-    .search button {
-        margin-right: 1em;
-    }
-
-    .info {
-        display: flex;
-        justify-content: center;
-    }
-
-    a {
-        text-decoration: none;
-        color: #2b3e50;
-    }
-
-    .info .icon {
-        margin-right: 1.5em;
-        font-size: 13px;
-        text-align: center;
-        line-height: 0;
-    }
-
-    .icon {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .icon i {
-        font-size: 24px;
-    }
-
-    .icon span {
-        border-radius: 102px;
-        width: 16px;
-        height: 16px;
-        background: #f44336;
-        line-height: 16px;
-        color: #fff;
-        margin-left: 30px;
-        margin-top: -9px;
-        position: absolute;
-        font-size: 10px;
-    }
-
-    .profile {
-        cursor: pointer;
-        width: 50px;
-        height: 50px;
-        border-radius: 100px;
-        background: url('https://static.yandex.net/market-export/_/b-image/ya-plus/avatar-border-2.svg') center center no-repeat;
-    }
-
-    .profile img {
-        padding: 3px;
-        width: 44px;
-    }
-
-    .category{
-        width: 1000px;
-        margin: 0 auto;
-    }
-
+  .category{
+    margin-left: 5vh;
+  }
 </style>

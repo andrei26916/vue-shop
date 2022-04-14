@@ -1,7 +1,11 @@
 <template>
     <div>
+      <div class="content">
         <h1>Заказы</h1>
+      </div>
+      <div class="content">
         <OrdersComponent/>
+      </div>
     </div>
 </template>
 
@@ -16,10 +20,6 @@
 </script>
 
 <style scoped>
-    div{
-        width: 100%;
-    }
-
     h1{
         text-align: left;
     }

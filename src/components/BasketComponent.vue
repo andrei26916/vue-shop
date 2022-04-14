@@ -11,7 +11,8 @@
                     <div class="info">
                         <p>{{basket.title}}</p>
                         <div style="width: 300px; color: #999;">
-                            <span style="padding-right: 20px"><i class="el-icon-collection-tag"></i> Избранное</span>
+                            <span v-if="!isCheck(basket)" @click="submit(basket)"  style="padding-right: 20px"><i class="el-icon-collection-tag"></i> Избранное</span>
+                            <span v-else @click="remove(basket.id)"  style="padding-right: 20px"><i class="el-icon-collection-tag"></i> Убрать из избранное</span>
                             <span @click="removeBasket(basket.id)"><i class="el-icon-delete"></i> Удалить</span>
                         </div>
                     </div>
@@ -45,20 +46,35 @@
     import {mapGetters} from 'vuex';
     import {mapMutations} from 'vuex';
     export default {
-        name: "BsketComponent",
+        name: "BasketComponent",
         data() {
             return {
 
             }
         },
-        computed: mapGetters(['allBasket', 'countBasket']),
+        computed: mapGetters(['allBasket', 'countBasket', 'countFavourites']),
         methods: {
-            ...mapMutations(['removeBasket', 'updateCountProduct']),
-            ...mapGetters(['resultBasket']),
+            ...mapMutations(['removeBasket', 'updateCountProduct', 'createFavourites', 'removeFavourites']),
+            ...mapGetters(['resultBasket', 'allFavourites']),
             handleChange(value, id){
                 console.log(value);
                 this.updateCountProduct({value, id})
             },
+          submit(product){
+            this.createFavourites(product)
+          },
+          remove(id){
+            this.removeFavourites(id);
+          },
+          isCheck(product){
+            let result = false;
+            this.allFavourites().forEach(function (item) {
+              if (item.id === product.id){
+                result = true;
+              }
+            });
+            return result;
+          },
         }
     }
 </script>

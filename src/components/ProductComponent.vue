@@ -26,7 +26,7 @@
                         <el-button type="warning"><i class="el-icon-shopping-cart-full"></i> В корзину</el-button>
                     </div>
                 </div>
-                <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tabs v-model="activeName">
                     <el-tab-pane label="Описание" name="first">
                         <p>{{product.description}}</p>
                     </el-tab-pane>
@@ -35,7 +35,7 @@
             </div>
 
         </div>
-        <FeedbacksCommponent/>
+        <FeedbacksComponent/>
 
 
 
@@ -43,39 +43,16 @@
 </template>
 
 <script>
-    import FeedbacksCommponent from "../components/FeedbacksComponent";
+    import FeedbacksComponent from "./FeedbacksComponent";
     export default {
         name: "ProductComponent",
+        props: ['product'],
         components: {
-            FeedbacksCommponent,
+          FeedbacksComponent,
         },
         data(){
             return {
-                loh: [
-                    'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-                    'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg'
-                ],
-                rate: 3.2,
                 activeName: 'first',
-                product: {
-                    id: 1,
-                    price: 350,
-                    title: 'Проектор XGIMI Elfin',
-                    description: 'Проводной геймпад для ПК и PlayStation 3 Defender Omega USB.\n' +
-                        '                            прекрасная модель для начинающих геймеров. При доступной цене геймпад имеет все необходимые функциональные клавиши и комфортно лежит в руках;\n' +
-                        '                            12 функциональных кнопок;\n' +
-                        '                            2 аналоговых джойстика. Два мини джойстика позволяют играть в дополнительные игры, например, в футбольные симуляторы.\n' +
-                        '                            8-позиционный переключатель видов;\n' +
-                        '                            Эффект вибрации. Делает аварии и столкновения более реалистичными (игра должна поддерживать функцию вибрации игрового контроллера);\n' +
-                        '                            Питание от порта USB.',
-                    rate: 2.5,
-                    ball: 540,
-                    images: [
-                        'https://c.dns-shop.ru/thumb/st1/fit/500/500/e3c0f578139091a82d4676bb6faef4c7/0a064994d0720dcd8d6e163d86c5b4f2e953dfd412070cea72e7766222e110d0.jpg.webp',
-                        'https://c.dns-shop.ru/thumb/st1/fit/500/500/e3c0f578139091a82d4676bb6faef4c7/0a064994d0720dcd8d6e163d86c5b4f2e953dfd412070cea72e7766222e110d0.jpg.webp',
-                        'https://c.dns-shop.ru/thumb/st1/fit/500/500/e3c0f578139091a82d4676bb6faef4c7/0a064994d0720dcd8d6e163d86c5b4f2e953dfd412070cea72e7766222e110d0.jpg.webp',
-                        ]
-                },
             }
         }
     }

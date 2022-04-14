@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="banner">
         <el-carousel indicator-position="outside">
             <el-carousel-item v-for="item in 4" :key="item">
 <!--                <img src="https://avatars.mds.yandex.net/get-adfox-content/2367573/211222_market_1790507_4903358_4.a278a44d1a485305fee563a10f495f02.png/optimize.webp" alt="">-->
@@ -16,12 +16,6 @@
 </script>
 
 <style scoped>
-    .content{
-        width: 1440px;
-        height: 300px;
-        margin: 0 auto;
-    }
-
     .el-carousel__item h3 {
         color: #475669;
         font-size: 18px;

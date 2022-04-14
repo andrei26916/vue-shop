@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from "./views/Home";
-import Basket from "./views/Bsket";
+import Basket from "./views/Basket";
 import Favourites from "./views/Favourites";
 import Orders from "./views/Orders";
 import Order from "./views/Order";
 import Product from "./views/Product";
 import Category from "./views/Category";
+import Settings from "@/views/User/Profile";
 
 Vue.use(Router);
 
@@ -21,7 +22,7 @@ export default new Router({
         {
             name: 'category',
             path: '/category/:id',
-            component: Category
+            component: Category,
         },
         {
             name: 'product',
@@ -52,6 +53,11 @@ export default new Router({
             name: 'order',
             path: '/order',
             component: Order
+        },
+        {
+            name: 'userSettings',
+            path: '/user/settings',
+            component: Settings
         }
     ]
 
