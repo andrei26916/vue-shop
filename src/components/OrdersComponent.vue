@@ -103,7 +103,7 @@
 
 <style scoped>
     .order{
-        width: 850px;
+        max-width: 850px;
         display: flow-root;
         border: 1px solid #e7e7e7;
         border-radius: 5px;
@@ -150,7 +150,6 @@
         align-content: flex-start;
         align-items: flex-start;
         text-align: left;
-        float: right;
     }
 
     .orderInfo p{

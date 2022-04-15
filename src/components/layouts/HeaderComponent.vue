@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="info">
-                    <router-link :to="{name: 'orders'}">
+                    <router-link v-if="authorisation" :to="{name: 'orders'}">
                         <div class="icon">
                             <i class="el-icon-notebook-2"></i>
                             <p>Заказы</p>
@@ -46,7 +46,7 @@
                         </div>
                     </router-link>
 
-                    <el-dropdown trigger="click">
+                    <el-dropdown trigger="click" v-if="authorisation">
                         <div class="profile">
                           <el-avatar :size="50">
                             <img src="https://e7.pngegg.com/pngimages/109/949/png-clipart-computer-software-management-business-service-technical-support-sugarplum-miscellaneous-infographic.png"/>
@@ -60,6 +60,17 @@
                         </el-dropdown-menu>
                     </el-dropdown>
 
+                  <router-link :to="{name: 'basket'}">
+                    <div class="auth">
+                      <p>Вход</p>
+                    </div>
+                  </router-link>
+
+                  <router-link :to="{name: 'basket'}">
+                    <div class="auth">
+                      <p>Регистрация</p>
+                    </div>
+                  </router-link>
 
                 </div>
 
@@ -75,7 +86,7 @@
         data() {
             return {
                 search: '',
-                basketCount: 1
+                authorisation: false
             }
         },
         name: "HeaderComponent",
@@ -89,5 +100,16 @@
 <style scoped>
   .category{
     margin-left: 5vh;
+  }
+
+  .auth{
+    margin-right: 1.5em;
+    font-size: 13px;
+    text-align: center;
+    line-height: 0;
+  }
+
+  .auth p{
+    line-height: 24px;
   }
 </style>

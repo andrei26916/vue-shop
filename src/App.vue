@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <HeaderComponent/>
-    <router-view/>
+      <HeaderComponent/>
+      <router-view/>
   </div>
 </template>
 
@@ -12,7 +12,16 @@ import HeaderComponent from './components/layouts/HeaderComponent';
 export default {
   name: 'App',
   components: {
-    HeaderComponent
+    HeaderComponent,
+  },
+  methods: {
+    isAdmin(){
+      let path = this.$route.path;
+      if (path.indexOf('admin') > 0){
+        return true;
+      }
+      return false;
+    }
   }
 }
 </script>

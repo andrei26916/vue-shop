@@ -62,9 +62,10 @@
 <style scoped>
   .main{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-around;
+    flex-direction: row;
   }
 
   .main .main_input {
