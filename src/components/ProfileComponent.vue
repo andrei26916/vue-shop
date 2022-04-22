@@ -33,22 +33,13 @@
   import ProfileResetPasswordForm from "@/components/Profile/ProfileResetPasswordForm";
   export default {
     name: "UserInformationComponent",
+    props: ['user'],
     components: {
       ProfileMainForm, ProfileAvatarForm, ProfileResetPasswordForm
     },
     data() {
       return {
         activeName: 'first',
-        user: {
-          id: 1,
-          login: 'andrei',
-          email: 'andrei26916@mail.ru',
-          birthDate: '1997-03-03',
-          last_name: null,
-          first_name: null,
-          father_name: null,
-          phone: '89997788356'
-        }
       }
     },
     methods: {
