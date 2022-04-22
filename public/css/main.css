@@ -100,6 +100,13 @@
     display: block;
 }
 
+.content_admin{
+    /*max-width: 1440px;*/
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+
 .block_flex_inner_center{
     display: flex;
     align-items: flex-end;
@@ -107,6 +114,14 @@
     position: inherit;
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+
+.el-menu-item{
+    text-align: left;
+}
+
+.el-submenu__title{
+    text-align: left;
 }
 
 

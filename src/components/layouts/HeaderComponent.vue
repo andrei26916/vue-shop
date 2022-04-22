@@ -60,17 +60,17 @@
                         </el-dropdown-menu>
                     </el-dropdown>
 
-                  <router-link :to="{name: 'basket'}">
-                    <div class="auth">
-                      <p>Вход</p>
-                    </div>
-                  </router-link>
+                    <router-link v-if="!authorisation" :to="{name: 'basket'}">
+                      <div class="auth">
+                        <p>Вход</p>
+                      </div>
+                    </router-link>
 
-                  <router-link :to="{name: 'basket'}">
-                    <div class="auth">
-                      <p>Регистрация</p>
-                    </div>
-                  </router-link>
+                    <router-link  v-if="!authorisation" :to="{name: 'basket'}">
+                      <div class="auth">
+                        <p>Регистрация</p>
+                      </div>
+                    </router-link>
 
                 </div>
 
@@ -86,7 +86,7 @@
         data() {
             return {
                 search: '',
-                authorisation: false
+                authorisation: true
             }
         },
         name: "HeaderComponent",
